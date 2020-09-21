@@ -1,0 +1,450 @@
+/* short reset */
+
+body, h1, h2, h3, h4, h5, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+a, li {
+  display: inline-block;
+}
+
+article, div {
+  box-sizing: border-box;
+}
+
+
+/* global settings */
+
+html {
+  font-family: 'Convergence', sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+/* colors --- also used to style links
+light green #B7c68B
+dark green #424a25
+light beige #F4F0CB
+dark beige #DED29E
+dark brown #26210D
+*/
+
+body {
+  color: #26210D;
+}
+
+header, section:nth-of-type(2n), .courses .compound {
+  background-color: #B7C68B;
+}
+
+section:nth-of-type(2n+1), article.split, footer {
+  background-color: #F4F0CB;
+}
+
+article.split:nth-child(2n+1) {
+  background-color: #DED29E;
+}
+
+
+/* desktop version first */
+
+.mobile {
+  display: none;
+}
+
+
+/* global layout structure with classes */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+}
+
+.wide {
+  width: 60%;
+}
+
+.narrow {
+  width: 40%;
+}
+
+.split {
+  display: flex;
+  align-items: center;
+}
+
+
+/* padding and margin for components used througout */
+
+.container>.wide {
+  padding-right: 1.5rem;
+}
+
+.split>.img-box {
+  padding: 1rem;
+}
+
+.split .txt-box {
+  padding-right: 1rem;
+}
+
+.split p {
+  margin-bottom: 0.5rem;
+}
+
+.compound .txt-box {
+  padding-top: 2rem;
+}
+
+
+/* image-handling */
+
+.img-box {
+  overflow: hidden;
+}
+
+img, video {
+  width: 100%;
+  height: auto;
+}
+
+
+/* uniform headings of the same kind */
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+h2 {
+  padding-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+h5 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+
+/* links behaving like buttons for better UX */
+
+a {
+  padding: 1px 1rem;
+  border-radius: 4rem 0.5rem;
+  background-color: #424a25;
+  color: #F4F0CB;
+  text-decoration: none;
+  transition: all 0.5s ease-out;
+}
+a:focus {
+  outline-style: none;
+  box-shadow: 0.2rem 0.2rem #DED29E, -0.2rem -0.2rem #DED29E,
+              0.4rem 0.4rem #424a25, -0.4rem -0.4rem #424a25;
+}
+a:hover {
+  box-shadow: 0.3rem 0.3rem #DED29E, -0.3rem -0.3rem #DED29E,
+              0.6rem 0.6rem #26210D, -0.6rem -0.6rem #26210D;
+  font-weight: bold;
+  background-color: #26210D;
+}
+a:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+a:visited {
+  color: #DED29E;
+}
+
+.button {
+  display: block;
+  padding: 0.5rem;
+  margin: 0 5%;
+  text-align: center;
+}
+.button:focus {
+  box-shadow: 0.3rem 0.3rem #DED29E, -0.3rem -0.3rem #DED29E,
+              0.6rem 0.6rem #424a25, -0.6rem -0.6rem #424a25;
+}
+.button:hover {
+  box-shadow: 0.5rem 0.5rem #DED29E, -0.5rem -0.5rem #DED29E,
+              1rem 1rem #26210D, -1rem -1rem #26210D;
+}
+
+
+/* settings for individual parts of the page */
+
+
+/* header AND footer navigation bar */
+
+nav li {
+  padding-left: 1rem;
+}
+
+
+/* header */
+
+header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 4rem;
+}
+
+header .container {
+  align-items: center;
+  height: inherit;
+  padding: 0 1.5rem;
+}
+
+
+/* header -- logo-group  relevant for desktop only */
+
+.logo-group {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo-group img {
+  height: 80%;
+  width: auto;
+}
+
+.name {
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.name span:first-child {
+  font-weight: bold;
+}
+
+.name span:last-child {
+  font-weight: lighter;
+}
+
+
+/* main */
+
+
+/* offset fixed header for main AND footer */
+
+main, footer {
+  position: relative;
+  top: 4rem;
+}
+
+
+/* main -- indivudual sections */
+
+
+/* .banner */
+
+.banner .txt-box {
+  align-self: center;
+  padding-left: 1rem;
+}
+
+.banner p {
+  margin-bottom: 2rem;
+}
+
+/* .information */
+cite {
+  display: block;
+  margin-top: 1.5rem;
+}
+time {
+  display: inline-block;
+}
+
+
+/* .courses */
+.courses .container {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.courses .compound {
+  flex-basis: 18rem;
+  margin: 0.5rem 1rem;
+}
+.courses .txt-box {
+  padding: 1rem 1rem 1.5rem 1rem;
+}
+
+
+/* . thesis */
+.thesis .container>.wide {
+  padding-right: 0;
+}
+
+
+/* footer */
+footer .container {
+  justify-content: space-between;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+
+/* adjustments for other screensizes */
+
+
+/* for larger screens - larger base font-size  and some breathing room */
+@media only screen and (min-width: 1280px) {
+  html {
+    font-size: 1.4vw;
+  }
+  .container {
+    padding: 2rem 7.5%;
+  }
+}
+
+
+/* for smaller screens */
+
+/* guest lecture box gets too crowded */
+@media only screen and (max-width: 980px) {
+  /* overall layout */
+  .container > .wide,
+  .container > .narrow {
+    width: 100%;
+  }
+}
+
+/* header breaks */
+@media only screen and (max-width: 835px) {
+  /* overall layout */
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .wide,
+  .narrow {
+    width: 100%;
+  }
+  header a {
+    border-radius: 1rem;
+  }
+  /* header */
+  header .mobile {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+  }
+  header img {
+    padding-top: 0.5rem;
+  }
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  li:first-child img {
+    height: 3rem;
+    width: auto;
+  }
+  /* courses */
+  i {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .courses h4 {
+    text-align: center;
+  }
+}
+
+/* adjust courses section */
+@media only screen and (max-width: 740px) {
+  /* courses */
+  .courses .compound {
+    flex-basis: 100%;
+    padding: 0;
+  }
+  .courses .txt-box {
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 1rem;
+  }
+  i {
+    margin: 0 2rem;
+    text-align: center;
+  }
+  .courses h4 {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+/* fully implement mobile spec */
+@media only screen and (max-width: 600px) {
+  /* overall layout */
+  .split {
+    flex-direction: column;
+    border: 1rem solid transparent;
+  }
+  .split .img-box {
+    width: 100%;
+    max-height: 12rem;
+    padding: 0;
+  }
+  .split .txt-box {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+  /* individual sections */
+  /* banner */
+  .banner {
+    padding-bottom: 2rem;
+  }
+  .banner .container {
+    flex-flow: column;
+    padding: 0;
+  }
+  .banner .img-box {
+    max-height: 15rem;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .banner p {
+    margin-bottom: 1.5rem;
+  }
+  /* information */
+  .information .container {
+    padding: 0;
+  }
+  .information .img-box {
+    max-height: none;
+  }
+  /* thesis */
+  .thesis .container {
+    padding-bottom: 1.5rem;
+  }
+  /* footer */
+  footer .container {
+    padding: 1rem;
+  }
+}
